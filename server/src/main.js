@@ -11,37 +11,26 @@ function run(port) {
   const db = initDatabase()
 
   // cross origin request 
-  app.use(cors())
+  app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true,
+  }))
 
   app.use(express.static(path.join("server", "src","main.js")))
-
-
-  app.get('/', (req, res) => {
-    res.send()
-    // res.json({
-    //   hello: 'From search Github API'
-    // })
-  })
-
-  app.get('/about', function(req, res) {
-    res.send('About birds');
-  });
-
 
   app.get('/users/:username', (req, res) => {
     fetch("https://api.github.com/users/" + req.params.username)
     .then(result => result.json())
     .then(function (result) {
-      console.log(result)
       insertIntoTable(result)
 
     })
-    // .catch(function(res) {
-    //   console.log("erreur")
-    // })
     res.send(req.params.username)
   })
 
+  app.get('/',(req,res) => {
+    res.send("hello from express")
+  })
 
 
   app.listen(port, () => {
