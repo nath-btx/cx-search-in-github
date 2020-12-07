@@ -1,0 +1,37 @@
+{
+  "name": "cx-search-in-github",
+  "version": "1.0.0",
+  "description": "",
+  "main": "/server/main.js",
+  "scripts": {
+    "dev": "nodemon src/main",
+    "start": "node src/main",
+    "seed": "nodemon src/seed",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "efrei",
+    "github"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nath-btx/cx-search-in-github.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nath-btx/cx-search-in-github/issues"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "knex": "^0.21.12",
+    "node-fetch": "^2.6.1",
+    "pg": "^8.5.1",
+    "sequelize": "^6.3.5"
+  }
+}
