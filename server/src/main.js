@@ -10,6 +10,7 @@ function run(port) {
   const app = express()
   const db = initDatabase()
 
+
   // cross origin request 
   app.use(cors({
     origin: 'http://localhost:3000',
@@ -18,14 +19,17 @@ function run(port) {
 
   app.use(express.static(path.join("server", "src","main.js")))
 
+
   app.get('/users/:username', (req, res) => {
     fetch("https://api.github.com/users/" + req.params.username)
     .then(result => result.json())
     .then(function (result) {
-      insertIntoTable(result)
-
+      if (result['message'] == 'Not Found')
+        console.log('not found')
+      else
+        insertIntoTable(result)
+        res.json(result)
     })
-    res.send(req.params.username)
   })
 
   app.get('/',(req,res) => {
