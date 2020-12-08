@@ -74,7 +74,7 @@ else
       <div className="App">
         <form onSubmit={this.handleSubmit}>
         <label>
-          Nom :
+        Cherchez un utilisateur github : 
           <input type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
         <input type="submit" value="Envoyer" />
@@ -87,7 +87,7 @@ else {
     <div className="App">
       <form onSubmit={this.handleSubmit}>
       <label>
-        Nom :
+        Cherchez un utilisateur github : 
         <input type="text" value={value['login']} onChange={this.handleChange} />
       </label>
       <input type="submit" value="Envoyer" />
